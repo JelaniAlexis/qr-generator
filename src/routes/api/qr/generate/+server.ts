@@ -9,7 +9,7 @@ export const POST: RequestHandler = async ({ request }) => {
         errorCorrectionLevel: "L",
         scale: 8,
         rendererOpts: { quality: 1 },
-        version: 8
+        version: 6
     });
 
     return json({ qrDataString }, { status: 201 });

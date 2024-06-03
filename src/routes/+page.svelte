@@ -38,6 +38,7 @@
         <div class="m-4 p-4 bg-gray-500 flex flex-col items-center gap-4">
             <h2 class="text-gray-900 text-xl font-bold">Here's your QR Code.</h2>
             <img src={fetchedQrDataString} alt="The generated QR code.">
+            <a class="btn-lg btn" href={fetchedQrDataString} download={`qr-${new Date(Date.now()).toLocaleDateString()}`}>Download QR Code</a>
         </div>
     {/if}
 
