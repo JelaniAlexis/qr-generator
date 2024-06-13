@@ -9,8 +9,7 @@ export const POST: RequestHandler = async ({ request }) => {
     const qrDataString = await QRCode.toDataURL(qrPrefixes[prefix_id] + string_to_encode, {
         errorCorrectionLevel: "L",
         scale: 8,
-        rendererOpts: { quality: 1 },
-        version: 6
+        rendererOpts: { quality: 1 }
     });
 
     return json({ qrDataString }, { status: 201 });

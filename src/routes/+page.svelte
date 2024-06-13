@@ -51,19 +51,19 @@
 
     <form class="w-full flex flex-col items-center gap-4 text-gray-200" on:submit={onSubmit}>
         <select bind:value={formData.prefix_id} on:change={onprefixChange} class={`h-12 border ${formData.prefix_id == 0 ? "border-primary": "border-neutral"} bg-transparent px-3 outline outline-0 rounded-md`}>
-            <option class="bg-neutral" selected value={0}>Select a prefix (none selected):</option>
+            <option class="bg-neutral" selected value={0}>Select a prefix (optional):</option>
             <option class="bg-neutral" value={1}>URL (https://)</option>
             <option class="bg-neutral" value={2}>Email Address (mailto:)</option>
             <option class="bg-neutral" value={3}>Phone Number (tel:)</option>
             <option class="bg-neutral" value={4}>SMS (sms:)</option>
             <option class="bg-neutral" value={5}>Coordinates (geo:)</option>
         </select>
-        <label class="text-lg" for="string-to-encode">Content to encode (max. 128 characters):</label>
+        <label class="text-lg" for="string-to-encode">Text to encode:</label>
         <div class={`join w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 textarea p-0 ${formData.string_to_encode == "" ? "textarea-primary" : "border-neutral"} text-center`}>
-            <div class="join-item w-1/12 bg-neutral flex items-start py-3 justify-center text-sm">
-                <p class="text-neutral-content">{qrPrefixes[formData.prefix_id] || "No prefix"}</p>
+            <div class="join-item w-1/6 sm:w-1/12 bg-neutral flex items-start py-3 justify-center text-sm">
+                <p class="text-neutral-content">{qrPrefixes[formData.prefix_id]}</p>
             </div>
-            <textarea class="join-item w-11/12 h-full textarea focus:!outline-none focus:!border-none" name="string_to_encode" id="string-to-encode" required placeholder="Type here..." rows="1" maxlength="128" bind:value={formData.string_to_encode}  />
+            <textarea class="join-item w-1/6 sm:w-11/12 h-full textarea focus:!outline-none focus:!border-none" name="string_to_encode" id="string-to-encode" required placeholder="Type here..." rows="1" bind:value={formData.string_to_encode}  />
         </div>
         <button class={`btn-lg btn ${formData.string_to_encode == "" ? "btn-disabled" : "btn-primary"}`} type="submit">Generate Code</button>
     </form>
