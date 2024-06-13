@@ -35,7 +35,7 @@
     <title>QR Generator | Jelani Alexis</title>
 </svelte:head>
 
-<div class="w-full min-h-screen flex flex-col justify-center items-center text-center gap-6 p-12">
+<div class="w-full min-h-screen flex flex-col justify-center items-center text-center gap-6 py-12">
     <div class="flex flex-col items-center">
         <h1 class="text-6xl">QR Generator</h1>
         <sub class="text-xl">Created by Jelani Alexis</sub>
@@ -60,10 +60,10 @@
         </select>
         <label class="text-lg" for="string-to-encode">Text to encode:</label>
         <div class={`join w-11/12 md:w-3/4 lg:w-2/3 xl:w-1/2 textarea p-0 ${formData.string_to_encode == "" ? "textarea-primary" : "border-neutral"} text-center`}>
-            <div class="join-item w-1/6 sm:w-1/12 bg-neutral flex items-start py-3 justify-center text-sm">
-                <p class="text-neutral-content">{qrPrefixes[formData.prefix_id]}</p>
+            <div class="join-item w-3/12 sm:w-1/12 bg-neutral flex items-start py-3 justify-center text-sm">
+                <p class="text-neutral-content">{qrPrefixes[formData.prefix_id] }</p>
             </div>
-            <textarea class="join-item w-1/6 sm:w-11/12 h-full textarea focus:!outline-none focus:!border-none" name="string_to_encode" id="string-to-encode" required placeholder="Type here..." rows="1" bind:value={formData.string_to_encode}  />
+            <textarea class="join-item w-9/12 sm:w-11/12 h-full textarea focus:!outline-none focus:!border-none" name="string_to_encode" id="string-to-encode" required placeholder="Type here..." rows="1" bind:value={formData.string_to_encode}  />
         </div>
         <button class={`btn-lg btn ${formData.string_to_encode == "" ? "btn-disabled" : "btn-primary"}`} type="submit">Generate Code</button>
     </form>
