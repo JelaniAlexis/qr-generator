@@ -7,10 +7,6 @@
     };
 
     let fetchedQrDataString: string;
-    
-    const onprefixChange = () => {
-        console.log(formData)
-    }
 
     const onSubmit = async (event: SubmitEvent & { currentTarget: EventTarget & HTMLFormElement }) => {
         event.preventDefault();
@@ -45,12 +41,12 @@
         <div class="m-4 p-4 bg-neutral flex flex-col items-center gap-4">
             <h2 class="text-neutral-content text-xl font-bold">Here's your QR Code.</h2>
             <img src={fetchedQrDataString} alt="The generated QR code.">
-            <a class="btn-lg btn btn-primary text-primary-content" href={fetchedQrDataString} download={`qr-${new Date(Date.now()).toLocaleDateString()}`}>Download QR Code</a>
+            <a class="btn-lg btn btn-primary text-primary-content" href={fetchedQrDataString} download={`qr-by-jelani-${new Date(Date.now()).toUTCString()}`}>Download QR Code</a>
         </div>
     {/if}
 
     <form class="w-full flex flex-col items-center gap-4 text-gray-200" on:submit={onSubmit}>
-        <select bind:value={formData.prefix_id} on:change={onprefixChange} class={`h-12 border ${formData.prefix_id == 0 ? "border-primary": "border-neutral"} bg-transparent px-3 outline outline-0 rounded-md`}>
+        <select bind:value={formData.prefix_id} class={`h-12 border ${formData.prefix_id == 0 ? "border-primary": "border-neutral"} bg-transparent px-3 outline outline-0 rounded-md`}>
             <option class="bg-neutral" selected value={0}>Select a prefix (optional):</option>
             <option class="bg-neutral" value={1}>URL (https://)</option>
             <option class="bg-neutral" value={2}>Email Address (mailto:)</option>
